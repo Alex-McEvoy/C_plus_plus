@@ -1,1 +1,3 @@
-# C_plus_plus
+# C++
+
+Learning C++ through University of Oregon Post-Bac program.
