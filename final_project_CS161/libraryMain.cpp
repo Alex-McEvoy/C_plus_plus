@@ -111,7 +111,7 @@ void randomAction(vector<Book*> ourBooks, vector<Patron*> ourPeople, Library* ou
     switch (action)
     {
         case 1: {   Book* currentBook = randomBook(ourBooks);
-                    if (ourLib->checkOutBook(currentPerson->getIdNum(), currentBook->getIdCode()) != "NULL")
+                    if (ourLib->checkOutBook(currentPerson->getIdNum(), currentBook->getIdCode()) == "check out successful")
                     {
                         cout << currentPerson->getName() << " has just checked out ";
                         cout << currentBook->getTitle() << "." << endl;
@@ -121,18 +121,20 @@ void randomAction(vector<Book*> ourBooks, vector<Patron*> ourPeople, Library* ou
         case 2: {   if (currentPerson->getCheckedOutBooks().empty() == false) //only return if they have a book checked out
                     {
                         Book* currentBook = currentPerson->getCheckedOutBooks().at(0);
-                        ourLib->returnBook(currentBook->getIdCode());
-
-                        cout << currentPerson->getName() << " has just returned ";
-                        cout << currentBook->getTitle() << "." << endl;
+                        if (ourLib->returnBook(currentBook->getIdCode()) == "return successful")
+                        {
+                            cout << currentPerson->getName() << " has just returned ";
+                            cout << currentBook->getTitle() << "." << endl;
+                        }
                     }
                     break;
                 }
         case 3: {   Book* currentBook = randomBook(ourBooks);
-                    ourLib->requestBook(currentPerson->getIdNum(), currentBook->getIdCode());
-
-                    cout << currentPerson->getName() << " has just put ";
-                    cout << currentBook->getTitle() << " on hold." << endl;
+                    if (ourLib->requestBook(currentPerson->getIdNum(), currentBook->getIdCode()) == "request successful")
+                    {
+                        cout << currentPerson->getName() << " has just put ";
+                        cout << currentBook->getTitle() << " on hold." << endl;
+                    }
 
                     break;
                 }
