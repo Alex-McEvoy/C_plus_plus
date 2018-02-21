@@ -1,0 +1,7 @@
+/Users/admin/Documents/OSU/CS162/module5/project3/BlueMen.cpp:55:9: error: use of undeclared identifier 'NUM_DICE'
+    {   NUM_DICE = 1;   }
+        ^
+/Users/admin/Documents/OSU/CS162/module5/project3/BlueMen.cpp:57:45: error: use of undeclared identifier 'NUM_DICE'
+    int defenseRoll = diceRoll(DEFENSE_DIE, NUM_DICE);
+                                            ^
+2 errors generated.
