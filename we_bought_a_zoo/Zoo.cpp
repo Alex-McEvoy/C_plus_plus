@@ -410,7 +410,14 @@ void Zoo::playGame()
 Zoo::~Zoo()
 {
     for (int i = 0; i < speciesSize; i++) {
-            delete [] animals[i];
+        for (int j = 0; j < animalCount[i]; j++) {
+            if (animals[i][j] != NULL)
+            {
+                delete animals[i][j];
+                animals[i][j] = NULL;
+            }
         }
+        delete [] animals[i];
+    }
     delete [] animals;
 }
